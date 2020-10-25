@@ -1,5 +1,6 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
+var moment = require("moment");
 
 var UserSchema = new Schema({
     name: {
@@ -20,14 +21,18 @@ var UserSchema = new Schema({
         type:String,
         required: true
     },
-    image: {
+    img: {
         data: Buffer,
         contentType: String
     },
     date: {
-        type: Date,
-        default: Date.now
+        type: String, 
+        default: () => moment().format("MMMM Do YYYY")
+    },
+    time: {
+        type: String, 
+        default: () => moment().format("h:mm a")
     }
-});
+})
 
 module.exports = mongoose.model('user', UserSchema, 'users');
