@@ -6,7 +6,7 @@ class Card extends Component{
     
     render(){
         return(
-            <div className="card-wrapper">
+            <div className="card-wrapper" >
                 <img src={this.props.image}
                      alt="image1"
                      height="200px"

@@ -28,7 +28,7 @@ import "./dashboard.css";
     componentDidMount = async () => {
         try {
           const res = await axios.get("/api/user");
-          console.log(res.data);
+          // console.log(res.data);
           this.setState({
             list: res.data,
           });
@@ -45,6 +45,7 @@ import "./dashboard.css";
           <ScrollMenu
             data={this.state.list.map(e=>
                 <Card
+                      key = {e._id}
                      id={e._id}
                      title={e.name}
                      email={e.email}

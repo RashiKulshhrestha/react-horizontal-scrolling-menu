@@ -4,7 +4,13 @@ const app = express();
 const connectMongoDB = require('./config/db');
 const apiRouter = require('./api/index');
 
-app.use(cors());
+const isDevelopment = process.env.NODE_ENV === "development";
+
+if (isDevelopment) {
+	app.use(cors());
+} else {
+	app.use(cors({ origin: "*", optionsSuccessStatus: 200 }));
+}
 // Connect To MongoDB
 connectMongoDB();
 
@@ -21,7 +27,7 @@ if (process.env.NODE_ENV === "production") {
       res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
     });
   }
-  
+
 const port = process.env.PORT || 5000;
   
 app.listen(port, () => console.log(`Server up and running on port ${port}`));

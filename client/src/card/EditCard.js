@@ -15,11 +15,11 @@ class EditCard extends Component {
   
   componentDidMount = async () => {
     let id = this.props.match.params.user_id;
-    console.log(id);
+    // console.log(id);
     this.setState({user_id: id});
     try {
       const res = await axios.get(`http://localhost:5000/api/user/${id}`);
-      console.log(res.data);
+      // console.log(res.data);
       
       this.setState({
         items: res.data,
@@ -63,7 +63,7 @@ class EditCard extends Component {
     }
   }
   render(){
-    console.log(this.state.user_id);
+    // console.log(this.state.user_id);
     return(
       <div>
         <form className="edit-card-wrapper" onSubmit={this.handleSubmit}>
