@@ -70,16 +70,17 @@ async (req, res) => {
     }
 });
 
-var utcDate = moment().format("MMMM Do YYYY");
-var utcTime = moment().format("h:mm a");
-var step1utc = moment().add(3, 'days').format("MMMM Do YYYY");
-var step2utc = moment().add(6, 'days').format("MMMM Do YYYY");
-var step3utc = moment().add(9, 'days').format("MMMM Do YYYY");
+
 router.put(
   "/:id",
   async (req, res) => {
       console.log(utcTime);
       try {
+        var utcDate = moment().format("MMMM Do YYYY");
+        var utcTime = moment().format("h:mm a");
+        var step1utc = moment().add(3, 'days').format("MMMM Do YYYY");
+        var step2utc = moment().add(6, 'days').format("MMMM Do YYYY");
+        var step3utc = moment().add(9, 'days').format("MMMM Do YYYY");
           const user = await User.findByIdAndUpdate(req.params.id,
               {
                   $set:{
