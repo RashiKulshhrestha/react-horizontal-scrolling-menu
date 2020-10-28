@@ -32,6 +32,18 @@ var UserSchema = new Schema({
     time: {
         type: String, 
         default: () => moment().format("h:mm a")
+    },
+    step1: {
+        type: String,
+        default: moment().add(3, 'days')
+    },
+    step2: {
+        type: String,
+        default: moment().add(6, 'days')
+    },
+    step3: {
+        type: String,
+        default: moment().add(9, 'days')
     }
 })
 

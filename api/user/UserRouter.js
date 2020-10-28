@@ -72,6 +72,9 @@ async (req, res) => {
 
 var utcDate = moment().format("MMMM Do YYYY");
 var utcTime = moment().format("h:mm a");
+var step1utc = moment().add(3, 'days').format("MMMM Do YYYY");
+var step2utc = moment().add(6, 'days').format("MMMM Do YYYY");
+var step3utc = moment().add(9, 'days').format("MMMM Do YYYY");
 router.put(
   "/:id",
   async (req, res) => {
@@ -84,7 +87,10 @@ router.put(
                       description: req.body.desc,
                       mobile: req.body.phone,
                       date: utcDate,
-                      time : utcTime
+                      time : utcTime,
+                      step1 : step1utc,
+                      step2 : step2utc,
+                      step3 : step3utc
                   }
               });
           console.log(user);

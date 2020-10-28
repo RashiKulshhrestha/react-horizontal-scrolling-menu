@@ -7,10 +7,10 @@ class Card extends Component{
     render(){
         return(
             <div className="card-wrapper">
-                <img src="https://cdn.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png"
+                <img src={this.props.image}
                      alt="image1"
-                     height="100px"
-                     width="100px"/>
+                     height="200px"
+                     width="200px"/>
                 
                 <div>{this.props.title}</div>
                 <div>{this.props.email}</div>
@@ -18,6 +18,11 @@ class Card extends Component{
                 <div>{this.props.mobile}</div>
                 <div>{this.props.date}</div>
                 <div>{this.props.time}</div>
+                <div>Project Timeline
+                  <div>Step1: {this.props.step1}</div>
+                  <div>Step2: {this.props.step2}</div>
+                  <div>Step3: {this.props.step3}</div>
+                </div>
                 
                 <Link to={`/edit-details/${this.props.id}`}>
                   <abbr title="Edit">
