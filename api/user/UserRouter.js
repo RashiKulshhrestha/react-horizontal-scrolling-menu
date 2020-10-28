@@ -23,7 +23,7 @@ async (req,res)=> {
             email,
             mobile,
             description,
-            image,
+            pic,
             date
         } = req.body;
 
@@ -32,7 +32,7 @@ async (req,res)=> {
             email,
             mobile,
             description,
-            image,
+            pic,
             date
         });
         await user.save();
@@ -55,4 +55,40 @@ router.get("/", async (req, res) => {
     }
   });
 
+  router.get("/:id",
+async (req, res) => {
+    try{
+        const params_id = req.params.id;
+        const user = await User.find({_id: params_id});
+        res.json(user);
+        console.log(params_id );
+    }
+    catch(err){
+        console.error(err.message);
+        res.status(500).send("Server Error");
+    }
+});
+
+router.put(
+  "/:id",
+  async (req, res) => {
+      try {
+          const user = await User.findOneAndUpdate(req.params.id,
+              {
+                  $set:{
+                      name: req.body.userName
+                  }
+              });
+          console.log(user);
+          await user.save();
+
+          res.send(user);
+      }
+      catch (err) {
+          console.error(err.message);
+          res.status(500).send("Server Error");
+      }
+  }
+);
+  
 module.exports = router;

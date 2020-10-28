@@ -21,9 +21,11 @@ var UserSchema = new Schema({
         type:String,
         required: true
     },
-    img: {
-        data: Buffer,
-        contentType: String
+    pic: {
+        type: String,
+        required: true
+        // data: Buffer,
+        // contentType: String
     },
     date: {
         type: String, 
