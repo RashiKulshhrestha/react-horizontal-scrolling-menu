@@ -78,6 +78,7 @@ var step3utc = moment().add(9, 'days').format("MMMM Do YYYY");
 router.put(
   "/:id",
   async (req, res) => {
+      console.log(utcTime);
       try {
           const user = await User.findByIdAndUpdate(req.params.id,
               {
@@ -93,9 +94,7 @@ router.put(
                       step3 : step3utc
                   }
               });
-          console.log(user);
           await user.save();
-
           res.send(user);
       }
       catch (err) {

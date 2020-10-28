@@ -15,8 +15,6 @@ import "./dashboard.css";
   const ArrowLeft = Arrow({ text: '<', className: 'arrow-prev' });
   const ArrowRight = Arrow({ text: '>', className: 'arrow-next' });
   
-  const selected = 'Jeff Bezos';
-
   class Dashboard extends Component {
     constructor(props) {
       super(props);
@@ -38,14 +36,7 @@ import "./dashboard.css";
           console.error(err.message);
         }
       };
-      
-      state = {
-        selected
-      };
-     
-      onSelect = key => {
-        this.setState({ selected: key });
-      }
+  
     render() {
       // Create menu from items
       
@@ -69,8 +60,7 @@ import "./dashboard.css";
                  )}
             arrowLeft={ArrowLeft}
             arrowRight={ArrowRight}
-            selected={selected}
-            onSelect={this.onSelect}
+            
           />
         </div>
       );

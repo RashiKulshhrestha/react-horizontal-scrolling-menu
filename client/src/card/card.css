@@ -5,6 +5,27 @@
     margin: 100px;
     border-radius: 20px;
     box-shadow: 5px 5px 10px gray;
-    text-align: center;
     padding: 30px;
 }
+.edit-card-wrapper{
+    width: 450px;
+    height: 500px;
+    background-color: gainsboro ;
+    margin: 150px;
+    border-radius: 10px;
+}
+.edit-card-wrapper div{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 20px;
+}
+.edit-card-wrapper input{
+    width : 300px;
+    height: 50px;
+    border-radius: 10px;
+    border: 2px solid gray;
+    margin-left: 10px;
+}
+
