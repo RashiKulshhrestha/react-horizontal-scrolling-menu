@@ -49,7 +49,7 @@ class EditCard extends Component {
     e.preventDefault();
     const { userName, user_id, email, desc, phone } = this.state;
     try {
-      const res = await axios.put(`http://localhost:5000/api/user/${user_id}`, {
+      const res = await axios.put(`/api/user/${user_id}`, {
         userName, email, desc, phone
       });
       
