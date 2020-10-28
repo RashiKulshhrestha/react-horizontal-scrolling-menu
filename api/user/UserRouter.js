@@ -74,7 +74,6 @@ async (req, res) => {
 router.put(
   "/:id",
   async (req, res) => {
-      console.log(utcTime);
       try {
         var utcDate = moment().format("MMMM Do YYYY");
         var utcTime = moment().format("h:mm a");
