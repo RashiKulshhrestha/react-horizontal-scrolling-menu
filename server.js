@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const connectMongoDB = require('./config/db');
+const connectMongoDB = require('./db');
 const apiRouter = require('./api/index');
 
 const isDevelopment = process.env.NODE_ENV === "development";
