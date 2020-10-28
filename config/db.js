@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
-
-const db = "mongodb+srv://rashi:Class@1996@cluster0.nwasn.mongodb.net/food-app?retryWrites=true&w=majority";
+const config = require("config");
+const db = config.get("mongoURL");
 
 const connectMongoDB = async () => {
   try {
