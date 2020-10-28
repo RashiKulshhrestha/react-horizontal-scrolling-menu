@@ -6,8 +6,11 @@ class EditCard extends Component {
   state = {
     user_id: "",
     items: [],
-    userName: ""
-    }
+    userName: "",
+    email: "",
+    desc: "",
+    phone: 0,
+  }
   
   componentDidMount = async () => {
     let id = this.props.match.params.user_id;
@@ -25,7 +28,10 @@ class EditCard extends Component {
     }
     this.state.items.map( e => (
       this.setState({
-        userName : e.name
+        userName : e.name,
+        email: e.email,
+        desc: e.description,
+        phone: e.mobile
       })
     )
   )
@@ -40,10 +46,10 @@ class EditCard extends Component {
   
   handleSubmit = async(e) =>{
     e.preventDefault();
-    const { userName, user_id } = this.state;
+    const { userName, user_id, email, desc, phone } = this.state;
     try {
       const res = await axios.put(`http://localhost:5000/api/user/${user_id}`, {
-        userName
+        userName, email, desc, phone
       });
       console.log(res.data);
       
@@ -61,6 +67,9 @@ class EditCard extends Component {
         
         <form onSubmit={this.handleSubmit}>
           <input value={this.state.userName} name="userName"onChange={this.handleChange}/>
+          <input value={this.state.email} name="email"onChange={this.handleChange}/>
+          <input value={this.state.desc} name="desc"onChange={this.handleChange}/>
+          <input value={this.state.phone} name="phone"onChange={this.handleChange}/>
           <input type="submit" value="SUBMIT"/>
         </form>
         

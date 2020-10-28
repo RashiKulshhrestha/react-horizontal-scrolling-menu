@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { check,validationResult } = require('express-validator');
+var moment = require("moment");
 const User = require("./userModel");
 
 router.post("/",
@@ -69,14 +70,21 @@ async (req, res) => {
     }
 });
 
+var utcDate = moment().format("MMMM Do YYYY");
+var utcTime = moment().format("h:mm a");
 router.put(
   "/:id",
   async (req, res) => {
       try {
-          const user = await User.findOneAndUpdate(req.params.id,
+          const user = await User.findByIdAndUpdate(req.params.id,
               {
                   $set:{
-                      name: req.body.userName
+                      name: req.body.userName,
+                      email: req.body.email,
+                      description: req.body.desc,
+                      mobile: req.body.phone,
+                      date: utcDate,
+                      time : utcTime
                   }
               });
           console.log(user);
